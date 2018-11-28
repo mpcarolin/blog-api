@@ -29,8 +29,6 @@
     (response (db/get-content (Integer/parseInt id)))))
   (route/not-found "Route or element not found")
 
-    ;(wrap-json-body {:keywords? true})
-    ;(wrap-json-response {:pretty true})
 (def app
   (-> endpoints
     (wrap-json-response)
