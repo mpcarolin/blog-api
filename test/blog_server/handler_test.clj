@@ -3,12 +3,16 @@
             [ring.mock.request :as mock]
             [blog-server.handler :refer :all]))
 
+(def not-nil? (complement nil?))
+(def not-blank? (complement clojure.string/blank?))
+
+(app (mock/request :get "/blog/content/5"))
 (deftest test-app
-  (testing "main route"
-    (let [response (app (mock/request :get "/"))]
+  (testing "get-content"
+    (let [response (app (mock/request :get "/blog/content/5"))]
       (is (= (:status response) 200))
-      (is (= (:body response) "Hello World"))))
+      (is (not-blank? (:body response))))))
 
   (testing "not-found route"
     (let [response (app (mock/request :get "/invalid"))]
-      (is (= (:status response) 404)))))
+      (is (= (:status response) 404))))

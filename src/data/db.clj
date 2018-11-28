@@ -34,7 +34,7 @@
         results (jdbc/insert! db-spec :blog valid-post)
         id (first (vals (first results)))]
     (assert (= (count results) 1))
-    {::id id}))
+    {:id id}))
 
 (defn get-all-posts [] (jdbc/query db-spec ["select * from blog"] {:row-fn map->Post}))
 (defn get-all-posts-metadata [] (jdbc/query db-spec ["select id, title, description, date from blog"] {:row-fn map->PostMeta}))
