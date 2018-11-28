@@ -1,6 +1,6 @@
 # blog-server
 
-FIXME
+Backend api for the recurse-carefully blog, written in Clojure.
 
 ## Prerequisites
 
