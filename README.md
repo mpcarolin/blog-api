@@ -1,6 +1,6 @@
 # blog-server
 
-Backend api for recurse-carefully api, written in Clojure.
+Backend api for the recurse-carefully blog, written in Clojure.
 
 ## Prerequisites
 
